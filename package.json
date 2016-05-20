@@ -4,7 +4,9 @@
   "description": "Utility to republish JSON mqtt messages with a timestamp added",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha --recursive --reporter spec test"
+    "pretest": "npm run lint",
+    "test": "mocha --recursive --reporter spec test",
+    "lint": "jshint lib/ test/"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   },
   "homepage": "https://github.com/Scypho/mqtt-timestamper",
   "devDependencies": {
+    "jshint": "^2.9.2",
     "mocha": "^2.4.5"
   }
 }
