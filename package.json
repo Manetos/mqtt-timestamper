@@ -24,6 +24,11 @@
   "homepage": "https://github.com/Scypho/mqtt-timestamper",
   "devDependencies": {
     "jshint": "^2.9.2",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.4"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "mqtt": "^1.10.0"
   }
 }
