@@ -68,6 +68,6 @@ describe('Timestamper', function() {
         /* jshint nonew: false */
         new Timestamper(this.client, '#', transformer);
         this.client.on.withArgs('message').yield('woop', JSON.stringify({}));
-        assert(transformer.calledOnce);
+        assert(transformer.withArgs('woop').calledOnce);
     });
 });
