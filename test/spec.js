@@ -11,8 +11,10 @@ describe('Timestamper', function() {
         this.client = {
             connected: false,
             on: sinon.spy(),
+            removeListener: sinon.spy(),
             subscribe: sinon.spy(),
             publish: sinon.spy(),
+            unsubscribe: sinon.spy(),
         };
     });
     it('should subscribe if client is connected without connect event', function() {
@@ -69,5 +71,17 @@ describe('Timestamper', function() {
         new Timestamper(this.client, '#', transformer);
         this.client.on.withArgs('message').yield('woop', JSON.stringify({}));
         assert(transformer.withArgs('woop').calledOnce);
+    });
+
+    describe('stop', function() {
+        it('should unregister event listeners', function() {
+            var stamper = new Timestamper(this.client, '#', sinon.stub().returns('newTopic'));
+            this.client.on.withArgs('connect').yield();
+
+            stamper.stop();
+            this.client.unsubscribe.calledWith('#');
+            this.client.removeListener.calledWith('connect');
+            this.client.removeListener.calledWith('message');
+        });
     });
 });
