@@ -1,0 +1,26 @@
+{
+  "name": "mqtt-timestamper",
+  "version": "0.0.0",
+  "description": "Utility to republish JSON mqtt messages with a timestamp added",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha --recursive --reporter spec test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Scypho/mqtt-timestamper.git"
+  },
+  "keywords": [
+    "mqtt",
+    "json"
+  ],
+  "author": "ecksun",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Scypho/mqtt-timestamper/issues"
+  },
+  "homepage": "https://github.com/Scypho/mqtt-timestamper",
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}
