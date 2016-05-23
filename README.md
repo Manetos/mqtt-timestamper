@@ -7,7 +7,7 @@ This is a small utility that adds timestamps to MQTT JSON messages
 # Usage
 
 ```javascript
-var Timestamper = require('timestamper');
+var Timestamper = require('mqtt-timestamper');
 var mqtt    = require('mqtt');
 var client  = mqtt.connect('mqtt://test.mosquitto.org');
 
