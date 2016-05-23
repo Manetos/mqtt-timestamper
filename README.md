@@ -15,7 +15,7 @@ var timestamper = new Timestamper(client, 'sensors/#', function(topic) {
     return 'stamped/' + topic.slice('sensors/'.length);
 }, {
     qos: 2,
-    retrain: true
+    retain: true
 });
 
 setTimeout(function() {
