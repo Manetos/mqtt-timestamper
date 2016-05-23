@@ -54,6 +54,30 @@ describe('Timestamper', function() {
         this.client.on.withArgs('message').yield('woop', 'invalid json');
         assert(!this.client.publish.called);
     });
+    it('should not publish anything if data is boolean', function() {
+        /* jshint nonew: false */
+        new Timestamper(this.client, '#', sinon.stub().returns('newTopic'));
+        this.client.on.withArgs('message').yield('woop', JSON.stringify(true));
+        assert(!this.client.publish.called);
+    });
+    it('should not publish anything if data is number', function() {
+        /* jshint nonew: false */
+        new Timestamper(this.client, '#', sinon.stub().returns('newTopic'));
+        this.client.on.withArgs('message').yield('woop', JSON.stringify(5));
+        assert(!this.client.publish.called);
+    });
+    it('should not publish anything if data is string', function() {
+        /* jshint nonew: false */
+        new Timestamper(this.client, '#', sinon.stub().returns('newTopic'));
+        this.client.on.withArgs('message').yield('woop', JSON.stringify('invalid'));
+        assert(!this.client.publish.called);
+    });
+    it('should not publish anything if data is array', function() {
+        /* jshint nonew: false */
+        new Timestamper(this.client, '#', sinon.stub().returns('newTopic'));
+        this.client.on.withArgs('message').yield('woop', JSON.stringify([1, 2, 3]));
+        assert(!this.client.publish.called);
+    });
     it('shoudl pass through publishOptions to publish', function() {
         var publishOptions = {
             qos: 2,
