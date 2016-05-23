@@ -1,6 +1,6 @@
 {
   "name": "mqtt-timestamper",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Utility to republish JSON mqtt messages with a timestamp added",
   "main": "lib/index.js",
   "scripts": {
