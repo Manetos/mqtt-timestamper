@@ -103,9 +103,18 @@ describe('Timestamper', function() {
             this.client.on.withArgs('connect').yield();
 
             stamper.stop();
-            this.client.unsubscribe.calledWith('#');
             this.client.removeListener.calledWith('connect');
             this.client.removeListener.calledWith('message');
+        });
+    });
+
+    describe('unsubscribe', function() {
+        it('should unregister event listeners', function() {
+            var stamper = new Timestamper(this.client, '#', sinon.stub().returns('newTopic'));
+            this.client.on.withArgs('connect').yield();
+
+            stamper.unsubscribe();
+            this.client.unsubscribe.calledWith('#');
         });
     });
 });

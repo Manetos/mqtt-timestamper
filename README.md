@@ -19,6 +19,7 @@ var timestamper = new Timestamper(client, 'sensors/#', function(topic) {
 });
 
 setTimeout(function() {
+    timestamper.unsubscribe();
     timestamper.stop();
     client.end();
 }, 1000);
