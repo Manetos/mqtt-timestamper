@@ -14,8 +14,7 @@ var client  = mqtt.connect('mqtt://test.mosquitto.org');
 var timestamper = new Timestamper(client, 'sensors/#', function(topic) {
     return 'stamped/' + topic.slice('sensors/'.length);
 }, {
-    qos: 2,
-    retain: true
+    qos: 2
 });
 
 setTimeout(function() {
